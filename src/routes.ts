@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import UserController from './controllers/UserController';
 import KeyController from './controllers/KeyController';
-
+import TrasactionController from './controllers/TrasactionController';
 const routes = Router();
 
 //Rotas do usuario
@@ -17,7 +17,9 @@ routes.get('/keys/:user_id', KeyController.myKeys);
 routes.post('/createkey', KeyController.createKey);
 routes.post('/updateKey', KeyController.updateKey);
 routes.delete('/deleteKey/:key_id',KeyController.deleteKey);
+
 //Rota das transações
+routes.post('/createTransaction', TrasactionController.createTransaction);
 
 
 export default routes;

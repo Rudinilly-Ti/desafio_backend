@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
 import { User } from './User';
+import { Transaction } from './Transaction';
 
 interface Chave {
   id: number,
@@ -19,4 +20,10 @@ export class Key implements Chave {
     onDelete: "CASCADE"
   })
   user: number;
+
+  @OneToMany(type => Transaction, transaction => transaction.payer)
+  payments: Transaction[];
+
+  @OneToMany(type => Transaction, transaction => transaction.receiver)
+  receivements: Transaction[];
 }

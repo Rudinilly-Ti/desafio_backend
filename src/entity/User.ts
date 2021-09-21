@@ -1,5 +1,6 @@
 import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Key } from './Key'
+import { Key } from './Key';
+
 interface Usuario {
   id: number,
   nome: String,
@@ -20,4 +21,5 @@ export class User implements Usuario {
 
   @OneToMany(type => Key, key => key.user)
   keys: Key[];
+  
 }

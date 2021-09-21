@@ -6,7 +6,7 @@ export default {
   //listar chaves
   async allKeys(req:Request, res:Response) {
     const keyRepository = getConnection().getRepository(Key);
-    const result = await keyRepository.find({relations: ['user']});
+    const result = await keyRepository.find({relations: ['user', 'payments', 'receivements']});
     
     return res.send(result);
   },
@@ -14,7 +14,7 @@ export default {
   async myKeys(req:Request, res:Response) {
     const keyRepository = getConnection().getRepository(Key);
     const { user_id } = req.params;
-    const result = await keyRepository.find({ where: { user: user_id }});
+    const result = await keyRepository.find({ where: { user: user_id }, relations: ['payments', 'receivements']});
     return res.send(result);
   },
 
