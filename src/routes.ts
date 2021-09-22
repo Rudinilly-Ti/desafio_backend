@@ -3,7 +3,6 @@ import UserController from './controllers/UserController';
 import KeyController from './controllers/KeyController';
 import TrasactionController from './controllers/TrasactionController';
 const routes = Router();
-
 //Rotas do usuario
 routes.get('/users', UserController.allUsers);
 routes.get('/user/:user_id', UserController.searchUser);

@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "localhost",
+  "host": "192.168.99.100",
   "port": 5432,
   "username": "postgres",
   "password": "postgre",
-  "database": "desafio",
+  "database": "postgres",
   "entities": ["src/entity/*.ts"],
   "logging": true,
   "synchronize": true
