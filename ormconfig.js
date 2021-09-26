@@ -9,7 +9,7 @@ module.exports = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  dropSchema: process.env.DROP,
+  dropSchema: process.env.DROP || false,
   entities: ["src/entity/*.ts"],
   logging: ["error"],
   synchronize: true
