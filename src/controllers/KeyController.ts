@@ -23,36 +23,41 @@ export default {
     const keyRepository =  getConnection().getRepository(Key);
     const [ keys, numKeys ] = await keyRepository.findAndCount({where: { user: req.body.user }});
     const chaves = await keyRepository.find();
+    let result;
 
       if (numKeys == 3) {
-        return res.send({message: "Numero de chaves maximo atingido!"});
-      }else {
+        result = res.status(403).send({message: "Numero de chaves maximo atingido!"});
+        
+      } else {
         const { valor } = req.body;
-        var cadastrada = false;
+        var cadastrar = true;
   
         chaves.forEach( chave => {
           if (chave.valor == valor) {
-            return res.send({message: "Chave ja cadastrada!"});
-            cadastrada = true;
+            result =  res.status(409).send({message: "Chave ja cadastrada!"});
+            cadastrar = false;
           }
         });
   
-        if(!cadastrada){
+        if(cadastrar){
           const key = await keyRepository.create(req.body);
-          const result = await keyRepository.save(key);   
+          const resultado = await keyRepository.save(key);   
           
-          return res.send(result);
+          result = res.send(resultado);
       }  
+      return result;
     }   
   },
 
   //atualiar chave
   async updateKey(req: Request, res: Response) {
     const keyRepository =  getConnection().getRepository(Key);
-    const key = await keyRepository.findOne(req.body.id);
-    keyRepository.merge(key, req.body);
 
-    const result = keyRepository.save(key);
+    const { key_id } = req.params;
+    const key = await keyRepository.findOne(key_id);
+
+    keyRepository.merge(key, req.body);
+    const result = await keyRepository.save(key);
     
     return res.send(result);
   },

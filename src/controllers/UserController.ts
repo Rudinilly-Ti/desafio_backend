@@ -33,7 +33,8 @@ export default {
   //atualizar usuario
   async updateUser(req: Request, res: Response) {
     const userRepository =  getConnection().getRepository(User);
-    const user = await userRepository.findOne(req.body.id);
+    const { user_id } = req.params;
+    const user = await userRepository.findOne(user_id);
     
     userRepository.merge(user, req.body);
 
