@@ -1,6 +1,6 @@
 # Desafio_backend
 ### 🎲 Rodando o Projeto
-#### A aplicação foi feita no windows e pode precisar de mudanças pra rodar em outro sistema operacinal, verifique o package.json
+#### A aplicação foi feita no windows e pode precisar de mudanças pra rodar em outro sistema operacinal, verifique os arquivos de configuração
 ```bash
 # Clone este repositório
 $ git clone <https://github.com/Rudinilly-Ti/desafio_backend.git>
