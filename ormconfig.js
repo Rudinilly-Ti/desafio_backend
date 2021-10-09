@@ -10,7 +10,7 @@ module.exports = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   dropSchema: process.env.DROP || false,
-  entities: ["src/entity/*.ts"],
+  entities: ["./src/modules/**/infra/typeorm/entities/*.ts"],
   logging: ["error"],
   synchronize: true
 }

@@ -1,15 +1,8 @@
 import { Entity, Column ,PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { Key } from "./Key";
-
-interface Transacao {
-  id: number,
-  valor: number,
-  payer: number,
-  receiver: number
-}
+import Key from "../../../../keys/infra/typeorm/entities/Key";
 
 @Entity()
-export class Transaction implements Transacao {
+export default class Transaction {
   @PrimaryGeneratedColumn()
   id: number;
 

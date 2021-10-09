@@ -1,14 +1,8 @@
 import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Key } from './Key';
-
-interface Usuario {
-  id: number,
-  nome: String,
-  telefone: String
-}
+import Key from '../../../../keys/infra/typeorm/entities/Key';
 
 @Entity()
-export class User implements Usuario {
+export default class User {
 
   @PrimaryGeneratedColumn()
   id: number;
@@ -21,5 +15,5 @@ export class User implements Usuario {
 
   @OneToMany(type => Key, key => key.user)
   keys: Key[];
-  
+
 }
