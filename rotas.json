@@ -1,38 +1,38 @@
 {
-  "Usuario": {  
-    "listar": "http://192.168.99.100:3333/users",
-    "listar_especifico": "http://192.168.99.100:3333/user/:user_id",
-    "deletar": "http://192.168.99.100:3333/deleteUser/:user_id",
+  "Usuario": {
     "criar": {
-      "url": "http://192.168.99.100:3333/createUser",
+      "url": "http://192.168.99.100:3333/user/createUser",
       "body": {
         "nome": "",
         "telefone":""
-      }
-    },
-    "atualizar": {
-      "url": "http://192.168.99.100:3333/updateUser/:user_id",
-      "body": {
-	      "nome": "",
-	      "telefone":""
       }
     }
   },
 
   "Chave": {
-    "listar": "http://192.168.99.100:3333/keys",
-    "listar_especifico": "http://192.168.99.100:3333/key/:user_id",
-    "deletar": "http://192.168.99.100:3333/deleteKey/:key_id",
+    "listar_chaves_do_usuario": {
+      "url" : "http://192.168.99.100:3333/key/mykeys",
+      "body": {
+        "user_id": null
+      }
+    },
+    "deletar": {
+      "url" : "http://192.168.99.100:3333/key/deleteKey",
+      "body": {
+        "key_id": "id da chave"
+      }
+    },
     "criar": {
-      "url": "http://192.168.99.100:3333/createKey",
+      "url": "http://192.168.99.100:3333/key/createKey",
       "body": {
         "valor": "",
         "user": "id do usuario"
       }
     },
     "atualizar": {
-      "url": "http://192.168.99.100:3333/updateKey/:key_id",
+      "url": "http://192.168.99.100:3333/key/updateKey/",
       "body": {
+        "id": null,
 	      "valor": ""
       }
     }
@@ -40,7 +40,7 @@
 
   "Transação": {
     "criar":{
-      "url": "http://192.168.99.100:3333/createTransaction",
+      "url": "http://192.168.99.100:3333/transaction/createTransaction",
       "body" :{
         "valor": null,
 	      "payer": "id da chave de quem vai pagar",

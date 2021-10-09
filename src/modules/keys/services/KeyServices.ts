@@ -17,10 +17,10 @@ export default class KeyServices {
     if(userKeys.numKeys == 3)
       throw new AppError("Max number of keys reached.", 401);
 
-    userKeys.keys.forEach(key => {
-      if(key.valor == valor)
-        throw new AppError("Key already exists.", 401);
-    });
+    const keyExists = await this.keyRepository.findByValue(valor);
+
+    if(keyExists)
+      throw new AppError("Key already exists.", 401);
 
     const key = await this.keyRepository.create({  valor, user });
 
