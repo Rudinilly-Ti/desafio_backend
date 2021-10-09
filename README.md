@@ -1,6 +1,6 @@
 # Desafio_backend
 ### 🎲 Rodando o Projeto
-#### A aplicação foi feita no windows e pode precisar de mudanças pra rodar em outro sistema operacinal, verifique o package.json
+#### A aplicação foi feita no windows e pode precisar de mudanças pra rodar em outro sistema operacinal, verifique os arquivos de configuração
 ```bash
 # Clone este repositório
 $ git clone <https://github.com/Rudinilly-Ti/desafio_backend.git>
@@ -17,12 +17,9 @@ $ yarn
 # Então é so rodar o comando
 $ docker-compose up
 
-# Para rodar os testes utilize o comando
+# Para rodar os testes utilize o comando(lembre que o container com o db precisa estar ativo)
 $ npm test
 ou
 $ yarn test
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
 
 ```
